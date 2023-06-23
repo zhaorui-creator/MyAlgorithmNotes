@@ -1,12 +1,21 @@
 package chass02;
 
+import java.util.PriorityQueue;
+
 /**
  * @author zhaorui
  * @version 1.0
  */
 public class Code04_HeapSort {
     public static void main(String[] args) {
-
+        //使用系统的堆  默认小根堆
+        PriorityQueue<Integer> heap = new PriorityQueue<>();
+        heap.add(8);
+        heap.add(9);
+        heap.add(10);
+        while (!heap.isEmpty()) {
+            System.out.println(heap.poll());
+        }
 
     }
 
