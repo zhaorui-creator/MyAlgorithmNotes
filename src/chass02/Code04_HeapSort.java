@@ -11,7 +11,24 @@ public class Code04_HeapSort {
     }
 
     public static void heapSort(int[] arr) {
+        if (arr == null || arr.length < 2) {
+            return;
+        }
+        for (int i = 0; i < arr.length; i++) { //O(N)
+            heapInsert(arr, i);  //O(logN)
+        }
 
+        //另外一种将整棵树调整为大根堆的方法 O(N)复杂度
+        for (int i = arr.length - 1; i >= 0; i--) {
+            heapify(arr, i, arr.length);
+        }
+
+        int heapSize = arr.length;
+        swap(arr, 0, --heapSize);
+        while (heapSize > 0) {//O(N)
+            heapify(arr, 0, heapSize); //O(logN)
+            swap(arr, 0, --heapSize);
+        }
     }
 
     //arr[0..index-1]已经是大根堆了 某个数现在处在index 往上继续移动
